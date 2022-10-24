@@ -22,6 +22,8 @@ builder.Services.AddAuthentication(options =>
         options.ClientId = "mvc";
         options.ClientSecret = "secret";
         options.ResponseType = "code";
+        options.Scope.Add("profile");
+        options.GetClaimsFromUserInfoEndpoint = true;
 
         options.SaveTokens = true;
     });
