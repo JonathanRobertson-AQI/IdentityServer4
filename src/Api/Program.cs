@@ -18,14 +18,14 @@ builder.Services.AddAuthentication("Bearer")
         };
     });
 
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("ApiScope", policy =>
-    {
-        policy.RequireAuthenticatedUser();
-        policy.RequireClaim("scope", "api1");
-    });
-});
+//builder.Services.AddAuthorization(options =>
+//{
+//    options.AddPolicy("ApiScope", policy =>
+//    {
+//        policy.RequireAuthenticatedUser();
+//        policy.RequireClaim("scope", "api1");
+//    });
+//});
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -47,13 +47,14 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseRouting();
 app.UseAuthorization();
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers()
-        .RequireAuthorization("ApiScope");
-});
 
+// JR: use this if you want to use Api Scope authoriziation
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.MapControllers()
+//        .RequireAuthorization("ApiScope");
+//});
 
-//app.MapControllers();
+app.MapControllers();
 
 app.Run();

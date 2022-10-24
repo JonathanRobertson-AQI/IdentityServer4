@@ -51,8 +51,8 @@ namespace IdentityServer
                 {
                     options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
 
-                    options.ClientId = "<insert here>";
-                    options.ClientSecret = "<insert here>";
+                    options.ClientId = "redacted";
+                    options.ClientSecret = "suckit";
                 });
         }
 
